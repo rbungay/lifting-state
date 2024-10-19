@@ -1,6 +1,13 @@
-// src/components/IngredientList.jsx
-const IngredientList = (props) => {
-  return <ul>// map through props.ingredients</ul>;
+export const IngredientList = ({ availableIngredients }) => {
+  return (
+    <>
+      <ul>
+        {availableIngredients.map((i, index) => (
+          <li key={index} style={{ backgroundColor: i.color }}>
+            {i.name}
+          </li>
+        ))}
+      </ul>
+    </>
+  );
 };
-
-export default IngredientList;
