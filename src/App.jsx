@@ -1,6 +1,6 @@
 import { useState } from "react";
 import { IngredientList } from "./components/IngredientList";
-import BurgerStack from "./components/BurgerStack";
+import { BurgerStack } from "./components/BurgerStack";
 import "./App.css";
 
 export const availableIngredients = [
@@ -21,13 +21,22 @@ export const availableIngredients = [
 ];
 
 const App = () => {
+  const [stack, setStack] = useState([]);
+
+  const addToBurger = (newStack) => {
+    setStack((prevStack) => [...prevStack, newStack]);
+  };
+
   return (
     <main>
       <h1>Burger Stacker</h1>
       <section>
-        <IngredientList availableIngredients={availableIngredients} /> // add
-        here!
-        <BurgerStack />
+        <IngredientList
+          availableIngredients={availableIngredients}
+          addToBurger={addToBurger}
+        />
+        // add here!
+        <BurgerStack stack={stack} />
       </section>
     </main>
   );

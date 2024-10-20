@@ -1,6 +1,13 @@
-// `src/components/BurgerStack.jsx`
-const BurgerStack = (props) => {
-  return <ul>// map through props.ingredients</ul>;
+export const BurgerStack = ({ stack }) => {
+  return (
+    <>
+      <ul>
+        {stack.map((i, index) => (
+          <li key={index} style={{ backgroundColor: i.color }}>
+            {i.name}
+          </li>
+        ))}
+      </ul>
+    </>
+  );
 };
-
-export default BurgerStack;
